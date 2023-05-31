@@ -24,14 +24,12 @@
       <class>vn.iotstar.Entity.Ordered</class>
       <class>vn.iotstar.Entity.OrderItem</class>
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=QuanLyNongSan"/><!-- user=sa;password=1234567@a$ -->
-            <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-             <property name="javax.persistence.jdbc.user" value="sa" />
-            <property name="javax.persistence.jdbc.password" value="123456" />
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" />
-             <property name="hibernate.ddl-auto" value="update" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2008Dialect" />
-        </properties>
+        <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=QuanLyNongSan;integratedSecurity=true"/>
+        <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+        <property name="hibernate.show_sql" value="true" />
+        <property name="hibernate.format_sql" value="true" />
+         <property name="hibernate.ddl-auto" value="update" />
+        <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2008Dialect" />
+    </properties>
     </persistence-unit>
 </persistence>

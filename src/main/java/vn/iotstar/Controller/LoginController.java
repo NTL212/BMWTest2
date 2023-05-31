@@ -50,10 +50,10 @@ public class LoginController extends HttpServlet {
 		}
 		String filteredUsername = StringEscapeUtils.escapeHtml4(username);
 		String encodedUsername = URLEncoder.encode(filteredUsername, "UTF-8");
-		System.out.print(encodedUsername);
+		
 		String filteredPassword = StringEscapeUtils.escapeHtml4(password);
 		String encodedPassword =URLEncoder.encode(filteredPassword, "UTF-8");
-		System.out.print(encodedPassword);
+
 		try {
 			User u = userservice.checkLogin(filteredUsername, filteredPassword);
 			if (u != null) {
