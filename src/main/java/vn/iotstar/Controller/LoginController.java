@@ -48,16 +48,17 @@ public class LoginController extends HttpServlet {
 			response.sendRedirect("/DoAnLTWeb");
             return;
 		}
-		String filteredUsername = Encode.forHtml(username);
-		URLEncoder.encode(filteredUsername, "UTF-8");
-		
+		String filteredUsername = StringEscapeUtils.escapeHtml4(username);
+		String encodedUsername = URLEncoder.encode(filteredUsername, "UTF-8");
+		System.out.print(encodedUsername);
 		String filteredPassword = StringEscapeUtils.escapeHtml4(password);
-		URLEncoder.encode(filteredPassword, "UTF-8");
+		String encodedPassword =URLEncoder.encode(filteredPassword, "UTF-8");
+		System.out.print(encodedPassword);
 		try {
-			User u = userservice.checkLogin(username, password);
+			User u = userservice.checkLogin(filteredUsername, filteredPassword);
 			if (u != null) {
 				HttpSession session = request.getSession();
-				session.setAttribute("username", filteredUsername);
+				session.setAttribute("username", encodedUsername);
 				response.sendRedirect(request.getContextPath() + "/");
 			} else {
 				request.setAttribute("errorMsg", "Sai tài khoản hoặc mật khẩu!!!");
