@@ -48,7 +48,7 @@ public class LoginController extends HttpServlet {
 			response.sendRedirect("/DoAnLTWeb");
             return;
 		}
-		String filteredUsername = StringEscapeUtils.escapeHtml4(username);
+		String filteredUsername = Encode.forHtml(username);
 		URLEncoder.encode(filteredUsername, "UTF-8");
 		
 		String filteredPassword = StringEscapeUtils.escapeHtml4(password);
