@@ -57,7 +57,7 @@ public class LoginController extends HttpServlet {
 			User u = userservice.checkLogin(username, password);
 			if (u != null) {
 				HttpSession session = request.getSession();
-				session.setAttribute("username", filteredPassword);
+				session.setAttribute("username", filteredUsername);
 				response.sendRedirect(request.getContextPath() + "/");
 			} else {
 				request.setAttribute("errorMsg", "Sai tài khoản hoặc mật khẩu!!!");
