@@ -55,7 +55,7 @@ public class LoginController extends HttpServlet {
 		String encodedPassword =URLEncoder.encode(filteredPassword, "UTF-8");
 
 		try {
-			User u = userservice.checkLogin(filteredUsername, filteredPassword);
+			User u = userservice.checkLogin(username, password);
 			if (u != null) {
 				HttpSession session = request.getSession();
 				session.setAttribute("username", encodedUsername);

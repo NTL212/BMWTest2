@@ -43,7 +43,7 @@ public class AdminLoginController extends HttpServlet {
 		String encodedPassword =URLEncoder.encode(filteredPassword, "UTF-8");
 		Admin admin = new Admin();
 		admin.setName(request.getParameter("name"));
-		Admin admin_check = adminservice.checkAdminLogin(filteredUsername, filteredPassword);
+		Admin admin_check = adminservice.checkAdminLogin(username, password);
 		try {
 			if (admin_check != null) {
 				HttpSession session = request.getSession();
